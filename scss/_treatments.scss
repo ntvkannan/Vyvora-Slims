@@ -1,0 +1,83 @@
+// ========================================
+// Explore Our Treatments
+// Responsive treatment-list layout
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+// ========================================
+// SECTION LAYOUT
+// ========================================
+// Mobile/tablet: intro block stacks above the treatment list.
+// Desktop: side-by-side per the approved composition — intro column
+// on the left, two-column treatment list on the right.
+
+.treatments__grid {
+  display: grid;
+  gap: $space-10;
+
+  @include respond(desktop) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+  }
+}
+
+.treatments__heading {
+  margin-bottom: $space-6;
+}
+
+.treatments__text {
+  margin-bottom: $space-8;
+}
+
+// Matches the approved design's uppercase, neutral-bordered treatment
+// for this CTA — the same pattern used for the Hero's secondary
+// button, scoped here rather than changed on the shared .btn system.
+.treatments__cta {
+  text-transform: uppercase;
+  border-color: $color-border;
+}
+
+
+// ========================================
+// TREATMENT LIST (reusable component)
+// ========================================
+// No numbering in the approved design — treatments are an unordered
+// catalog, not sequential steps, so this is a <ul>. Items are divided
+// by a hairline border rather than boxed cards. Kept generic enough
+// to reuse on the future Treatments page.
+
+.treatment-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: $space-9;
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.treatment-list__item {
+  padding-block: $space-7;
+  border-bottom: $border-width $border-style $color-border;
+
+  // The first item sits flush with the intro heading, per the
+  // approved design, rather than carrying extra top padding. At the
+  // two-column breakpoint, the second item becomes the top of the
+  // right-hand column and needs the same treatment.
+  &:first-child {
+    padding-top: 0;
+  }
+
+  @include respond(tablet) {
+    &:nth-child(2) {
+      padding-top: 0;
+    }
+  }
+}
+
+.treatment-list__name {
+  font-size: $font-size-h4;
+  margin-bottom: $space-3;
+}

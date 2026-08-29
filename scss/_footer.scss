@@ -1,0 +1,109 @@
+// ========================================
+// Site Footer
+// Brand, sitemap navigation, legal links
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+.site-footer {
+  background-color: $color-tertiary-light;
+  border-top: $border-width $border-style $color-border;
+
+  // Deliberately tighter than the shared .section padding — the
+  // approved reference shows a compact footer, not the same generous
+  // rhythm used to separate the page's main content sections.
+  padding-block: $space-9;
+
+  @include respond(desktop) {
+    padding-block: $space-10;
+  }
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: $space-9;
+
+  // Approved layout: a wider brand column followed by three
+  // narrower, evenly-sized link columns.
+  @include respond(desktop) {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+
+// ========================================
+// BRAND
+// ========================================
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+// logo2 is a taller, stacked icon+wordmark composition (unlike the
+// header's horizontal lockup), so it needs more height to keep its
+// wordmark legible at a comparable visual scale.
+.site-footer__logo img {
+  height: 120px;
+  width: auto;
+}
+
+.site-footer__copyright {
+  margin-top: $space-5;
+  color: $color-text-secondary;
+  font-size: $font-size-body-small;
+}
+
+
+// ========================================
+// NAVIGATION
+// ========================================
+// One <nav> landmark holds all three link lists (no visible column
+// headings in the approved design). `display: contents` at desktop
+// lets the three <ul>s become direct items of the outer grid without
+// giving up the semantic <nav> wrapper.
+
+.site-footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-9;
+
+  // Tablet: the three link lists share one row instead of stacking
+  // the full column height, making better use of the extra width.
+  @include respond(tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // Desktop: rejoins the outer brand + nav grid directly (see
+  // .site-footer__inner) rather than keeping its own row.
+  @include respond(desktop) {
+    display: contents;
+  }
+}
+
+.site-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.site-footer__link {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  color: $color-text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  // Marks the current page, matching the header nav's active-link
+  // treatment.
+  &.is-active {
+    color: $color-secondary-dark;
+    font-weight: $font-weight-semibold;
+  }
+}

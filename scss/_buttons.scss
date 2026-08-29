@@ -1,0 +1,57 @@
+// ========================================
+// VYVORA SLIMS
+// Buttons
+// ========================================
+
+@use "variables" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-4 $space-7;
+  border: $border-width $border-style transparent;
+  border-radius: $radius-none;
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-wide;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color $transition-base, color $transition-base, border-color $transition-base;
+}
+
+.btn--primary {
+  background-color: $color-primary;
+  color: $color-text-inverted;
+  border-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+}
+
+.btn--secondary {
+  background-color: $color-secondary;
+  color: $color-text-inverted;
+  border-color: $color-secondary;
+
+  &:hover {
+    background-color: $color-secondary-dark;
+    border-color: $color-secondary-dark;
+  }
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: $color-primary;
+  border-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-text-inverted;
+  }
+}

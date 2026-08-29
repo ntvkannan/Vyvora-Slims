@@ -1,0 +1,246 @@
+// ========================================
+// VYVORA SLIMS
+// Design System Variables
+// ========================================
+
+
+// ========================================
+// COLORS
+// ========================================
+
+// Core brand colors
+$color-primary: #0D332B;
+$color-secondary: #D19A5B;
+$color-tertiary: #F9F6F0;
+$color-neutral: #4A4A4A;
+
+
+// Primary variations
+$color-primary-dark: #08251F;
+$color-primary-light: #DCE8E4;
+
+
+// Secondary variations
+$color-secondary-dark: #A8753E;
+$color-secondary-light: #EBD2B4;
+
+
+// Tertiary variations
+$color-tertiary-dark: #EDE7DD;
+$color-tertiary-light: #FEFCF9;
+
+
+// Neutral variations
+$color-neutral-dark: #2E2E2E;
+$color-neutral-light: #E6E6E6;
+
+
+// Basic colors
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+
+// ========================================
+// BACKGROUNDS
+// ========================================
+
+$color-background: $color-tertiary;
+$color-background-light: #FEFCF9;
+$color-background-dark: $color-primary;
+
+$color-surface: #FFFFFF;
+$color-surface-muted: #F4F1EC;
+
+
+// ========================================
+// TEXT COLORS
+// ========================================
+
+$color-text-primary: $color-primary;
+$color-text-secondary: $color-neutral;
+$color-text-muted: #707070;
+
+$color-text-inverted: $color-white;
+$color-text-accent: $color-secondary;
+
+
+// ========================================
+// BORDER COLORS
+// ========================================
+
+$color-border: #D9D5CE;
+$color-border-light: #E8E4DE;
+$color-border-dark: #B9B5AE;
+
+
+// ========================================
+// TYPOGRAPHY
+// ========================================
+
+// Display / Headings
+$font-display: "Libre Caslon Text", Georgia, serif;
+
+// Body / UI
+$font-body: "Plus Jakarta Sans", Arial, sans-serif;
+
+// Labels
+$font-label: "Plus Jakarta Sans", Arial, sans-serif;
+
+
+// ========================================
+// FONT FILES
+// ========================================
+
+// Path is relative to the compiled css/main.css location
+$font-path: "../assets/fonts";
+
+
+// ========================================
+// FONT WEIGHTS
+// ========================================
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+
+// ========================================
+// FONT SIZES
+// ========================================
+
+// Display
+$font-size-display: clamp(3rem, 6vw, 5.5rem);
+
+// Headings
+$font-size-h1: clamp(2.75rem, 5vw, 4.5rem);
+$font-size-h2: clamp(2rem, 4vw, 3.25rem);
+$font-size-h3: clamp(1.5rem, 3vw, 2.25rem);
+$font-size-h4: clamp(1.25rem, 2vw, 1.5rem);
+
+// Body
+$font-size-body-large: 1.125rem;
+$font-size-body: 1rem;
+$font-size-body-small: 0.875rem;
+
+// Labels
+$font-size-label: 0.75rem;
+
+// Buttons
+$font-size-button: 0.75rem;
+
+
+// ========================================
+// LINE HEIGHT
+// ========================================
+
+$line-height-display: 0.95;
+$line-height-heading: 1.1;
+
+$line-height-body: 1.6;
+$line-height-body-tight: 1.45;
+
+$line-height-label: 1.2;
+
+
+// ========================================
+// LETTER SPACING
+// ========================================
+
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.04em;
+$letter-spacing-label: 0.08em;
+
+
+// ========================================
+// SPACING
+// ========================================
+
+// 4px base spacing system
+
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-5: 1.25rem; // 20px
+$space-6: 1.5rem; // 24px
+$space-7: 2rem; // 32px
+$space-8: 2.5rem; // 40px
+$space-9: 3rem; // 48px
+$space-10: 4rem; // 64px
+$space-11: 5rem; // 80px
+$space-12: 6rem; // 96px
+$space-13: 7.5rem; // 120px
+$space-14: 10rem; // 160px
+
+
+// ========================================
+// LAYOUT
+// ========================================
+
+$container-max-width: 1200px;
+
+$container-padding-mobile: 20px;
+$container-padding-tablet: 32px;
+$container-padding-desktop: 48px;
+
+
+// ========================================
+// GRID
+// ========================================
+
+$grid-gap-sm: $space-4;
+$grid-gap-md: $space-6;
+$grid-gap-lg: $space-8;
+$grid-gap-xl: $space-10;
+
+
+// ========================================
+// BORDERS
+// ========================================
+
+$border-width: 1px;
+
+$border-style: solid;
+
+
+// ========================================
+// BORDER RADIUS
+// ========================================
+
+$radius-none: 0;
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+
+
+// ========================================
+// BREAKPOINTS
+// ========================================
+
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1200px;
+$breakpoint-wide: 1440px;
+
+
+// ========================================
+// TRANSITIONS
+// ========================================
+
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms ease;
+
+
+// ========================================
+// Z-INDEX
+// ========================================
+
+$z-header: 1000;
+$z-dropdown: 1100;
+$z-modal: 1200;
+$z-overlay: 1300;

@@ -1,0 +1,238 @@
+// ========================================
+// Treatment Goals
+// Responsive goal-card layout
+// ========================================
+
+@use "sass:color";
+@use "variables" as *;
+@use "layout" as *;
+
+.goals__intro {
+  margin-bottom: $space-12;
+}
+
+.goals__heading {
+  margin-bottom: $space-7;
+}
+
+.goals__text {
+  max-width: 44rem;
+}
+
+
+// ========================================
+// GRID
+// ========================================
+// Mobile: everything stacks in document order (photo card, the two
+// plain cards, then the full-width photo card).
+// Desktop: a 7:5 column split — the Weight Loss photo card fills the
+// left column; Inch Loss + Body Contouring stack in the right column
+// and their combined height (2 cards + gap) drives the row height that
+// the Weight Loss card stretches to fill. Body Sculpting spans both
+// columns beneath.
+
+.goals__grid {
+  display: grid;
+  gap: $space-7;
+
+  @include respond(desktop) {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.goals__stack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-7;
+
+  @include respond(desktop) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.goal-card--weight-loss {
+  @include respond(desktop) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.goal-card--sculpting {
+  @include respond(desktop) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+
+// ========================================
+// CARD BASE
+// ========================================
+
+.goal-card {
+  position: relative;
+  display: block;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: box-shadow $transition-base;
+
+  &:hover .goal-card__cta {
+    text-decoration: underline;
+  }
+}
+
+.goal-card__number {
+  display: block;
+  font-family: $font-label;
+  font-size: $font-size-label;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  color: $color-secondary;
+  margin-bottom: $space-3;
+}
+
+.goal-card__description {
+  margin-bottom: $space-6;
+}
+
+.goal-card__cta {
+  display: inline-block;
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+}
+
+
+// ========================================
+// PLAIN CARDS (Inch Loss, Body Contouring)
+// ========================================
+// Text-only cards on the tertiary surface, per the approved design —
+// no image is used for these two goals.
+
+.goal-card--plain {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-tertiary-light;
+  border: $border-width $border-style $color-border;
+  padding: $space-8;
+
+  .goal-card__title {
+    margin-bottom: $space-4;
+  }
+
+  .goal-card__cta {
+    margin-top: auto;
+    color: $color-primary;
+  }
+}
+
+
+// ========================================
+// PHOTO CARDS (Weight Loss, Body Sculpting)
+// ========================================
+// Full-bleed photo with a scrim so the overlaid copy stays readable.
+// Weight Loss uses a dark scrim (bottom-aligned, white text); Body
+// Sculpting uses the lighter hero-style scrim (left-aligned, primary
+// text) since it sits on a brighter clinical photo.
+
+.goal-card--photo {
+  .goal-card__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .goal-card__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: $space-8;
+  }
+}
+
+.goal-card--weight-loss {
+  aspect-ratio: 659 / 600;
+
+  @include respond(desktop) {
+    aspect-ratio: auto;
+  }
+
+  .goal-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      color.adjust($color-primary-dark, $alpha: -0.15) 0%,
+      color.adjust($color-primary-dark, $alpha: -0.55) 45%,
+      color.adjust($color-primary-dark, $alpha: -1) 75%
+    );
+  }
+
+  .goal-card__body {
+    justify-content: flex-end;
+  }
+
+  .goal-card__title,
+  .goal-card__description {
+    color: $color-white;
+  }
+
+  .goal-card__cta {
+    color: $color-secondary;
+  }
+}
+
+// Mobile/tablet: height follows the text content (no aspect-ratio) so
+// the description can wrap to extra lines without clipping, and the
+// scrim covers the full card since the copy can span its full width.
+// Desktop: locks to the approved photo's aspect ratio and switches to
+// the narrower, left-aligned scrim from the PDF now that there's a
+// generous fixed width for the copy to sit within.
+.goal-card--sculpting {
+  .goal-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      color.adjust($color-tertiary, $alpha: -0.05) 0%,
+      color.adjust($color-tertiary, $alpha: -0.12) 100%
+    );
+  }
+
+  .goal-card__body {
+    justify-content: center;
+  }
+
+  .goal-card__cta {
+    color: $color-primary;
+  }
+
+  @include respond(desktop) {
+    aspect-ratio: 1152 / 400;
+
+    .goal-card__media::after {
+      background: linear-gradient(
+        to right,
+        color.adjust($color-tertiary, $alpha: -0.02) 0%,
+        color.adjust($color-tertiary, $alpha: -0.1) 40%,
+        color.adjust($color-tertiary, $alpha: -0.7) 65%,
+        color.adjust($color-tertiary, $alpha: -1) 90%
+      );
+    }
+
+    .goal-card__body {
+      max-width: 26rem;
+    }
+  }
+}

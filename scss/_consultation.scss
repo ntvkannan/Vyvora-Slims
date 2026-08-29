@@ -1,0 +1,36 @@
+// ========================================
+// Consultation CTA
+// Responsive consultation call-to-action
+// ========================================
+
+@use "variables" as *;
+
+// A bordered, centered panel on a slightly muted surface — narrower
+// than the standard container, per the approved design. The section
+// uses .container for the mobile-safe outer margin; this panel adds
+// its own tighter max-width and internal padding on top of that.
+.consultation__panel {
+  max-width: 54.5rem;
+  margin-inline: auto;
+  padding: $space-9 $space-8;
+  background-color: $color-surface-muted;
+  border: $border-width $border-style $color-border;
+  border-radius: $radius-none;
+  text-align: center;
+}
+
+.consultation__heading {
+  margin-bottom: $space-8;
+}
+
+.consultation__text {
+  max-width: 38rem;
+  margin-inline: auto;
+  margin-bottom: $space-8;
+}
+
+// Matches the approved design's uppercase treatment for this CTA,
+// scoped here rather than changed on the shared .btn system.
+.consultation__cta {
+  text-transform: uppercase;
+}

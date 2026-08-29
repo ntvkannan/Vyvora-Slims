@@ -1,0 +1,59 @@
+// ========================================
+// Final CTA
+// Closing consultation call-to-action
+// ========================================
+
+@use "sass:color";
+@use "variables" as *;
+
+.final-cta {
+  background-color: $color-primary;
+}
+
+.final-cta__inner {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.final-cta__heading {
+  color: $color-white;
+  margin-bottom: $space-6;
+}
+
+.final-cta__text {
+  // Slightly softened white gives the heading room to lead, matching
+  // the hierarchy used by the other CTA sections on this page.
+  color: color.adjust($color-white, $alpha: -0.15);
+  margin-bottom: $space-9;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-5;
+}
+
+// Both buttons reuse the shared .btn system; only their colors are
+// inverted here for the dark background, per the approved reference.
+.final-cta__actions .btn--primary {
+  background-color: $color-white;
+  color: $color-primary;
+  border-color: $color-white;
+
+  &:hover {
+    background-color: $color-tertiary;
+    border-color: $color-tertiary;
+  }
+}
+
+.final-cta__actions .btn--outline {
+  color: $color-white;
+  border-color: $color-white;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-primary;
+  }
+}

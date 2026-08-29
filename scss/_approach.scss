@@ -1,0 +1,61 @@
+// ========================================
+// Personalized Approach
+// Four-step responsive process layout
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+// The approved design sets this section on a plain white surface,
+// distinct from the tertiary cream used by the Hero/Goals sections
+// above it.
+.approach {
+  background-color: $color-white;
+}
+
+.approach__intro {
+  max-width: 56rem;
+  margin-inline: auto;
+  margin-bottom: $space-12;
+  text-align: center;
+}
+
+.approach__heading {
+  margin-bottom: $space-6;
+}
+
+
+// ========================================
+// STEPS
+// ========================================
+// Mobile: single column. Tablet: 2x2. Desktop: a single row of four,
+// matching the approved composition. No CTA is used here — the
+// approved PDF shows none for this section (see build report).
+
+.approach__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10 $space-7;
+  text-align: center;
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.approach__number {
+  display: block;
+  font-family: $font-display;
+  font-size: $font-size-h3;
+  color: $color-secondary;
+  margin-bottom: $space-3;
+}
+
+.approach__step-title {
+  font-size: $font-size-h4;
+  margin-bottom: $space-4;
+}

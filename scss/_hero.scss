@@ -1,0 +1,114 @@
+// ========================================
+// Home Hero
+// Primary hero layout and responsive behavior
+// ========================================
+
+@use "sass:color";
+@use "variables" as *;
+@use "layout" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+
+// ========================================
+// BACKGROUND MEDIA
+// ========================================
+// Full-bleed photo with a tertiary-colored scrim so the copy stays
+// readable. The gradient direction/strength changes at the desktop
+// breakpoint to match the approved composition (soft wash on mobile,
+// left-to-right fade revealing the photo on larger screens).
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      color.adjust($color-tertiary, $alpha: -0.06) 0%,
+      color.adjust($color-tertiary, $alpha: -0.18) 100%
+    );
+  }
+
+  @include respond(desktop) {
+    &::after {
+      background: linear-gradient(
+        to right,
+        color.adjust($color-tertiary, $alpha: -0.02) 0%,
+        color.adjust($color-tertiary, $alpha: -0.08) 40%,
+        color.adjust($color-tertiary, $alpha: -0.65) 68%,
+        color.adjust($color-tertiary, $alpha: -1) 100%
+      );
+    }
+  }
+}
+
+
+// ========================================
+// CONTENT
+// ========================================
+// .hero__content reuses .container as-is (left edge aligned with the
+// header logo, per the approved PDF). The reading measure is capped on
+// the individual heading/paragraph instead of the content wrapper —
+// applying max-width here directly would fight .container's own
+// margin-inline: auto and re-center the column instead of keeping it
+// flush left.
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__eyebrow {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-h4;
+  color: $color-secondary;
+  margin-bottom: $space-7;
+}
+
+.hero__heading {
+  max-width: 40rem;
+  margin-bottom: $space-7;
+  line-height: $line-height-heading;
+}
+
+.hero__text {
+  max-width: 34rem;
+  font-size: $font-size-body-large;
+  margin-bottom: $space-11;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-11;
+}
+
+// The hero sits on a photo rather than the flat background, so its
+// buttons use the approved uppercase/tracked treatment and a lighter,
+// neutral border on the secondary action instead of the default
+// primary-colored outline.
+.hero__actions .btn {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-label;
+}
+
+.hero__actions .btn--outline {
+  border-color: $color-border;
+}

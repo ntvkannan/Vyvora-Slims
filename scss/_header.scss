@@ -1,0 +1,120 @@
+// ========================================
+// VYVORA SLIMS
+// Header / Navigation
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+.site-header {
+  background-color: $color-background;
+  border-bottom: $border-width $border-style $color-border;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  padding-block: $space-4;
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  img {
+    height: 48px;
+    width: auto;
+
+    @include respond(desktop) {
+      height: 56px;
+    }
+  }
+}
+
+
+// ========================================
+// NAVIGATION
+// ========================================
+
+.site-nav {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
+  }
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: $space-7;
+}
+
+.site-nav__link {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  padding-block: $space-1;
+  border-bottom: $border-width $border-style transparent;
+  transition: color $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &.is-active {
+    font-weight: $font-weight-semibold;
+    border-bottom-color: $color-secondary;
+  }
+}
+
+
+// ========================================
+// ACTIONS (CTA + MOBILE TOGGLE)
+// ========================================
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+}
+
+.site-header__cta {
+  display: none;
+
+  @include respond(desktop) {
+    display: inline-flex;
+  }
+}
+
+
+// ========================================
+// MOBILE MENU TOGGLE
+// ========================================
+// Structure only — toggle behavior is implemented in a later JS step.
+
+.site-header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $space-1;
+  width: 32px;
+  height: 32px;
+
+  @include respond(desktop) {
+    display: none;
+  }
+}
+
+.site-header__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: $color-primary;
+}

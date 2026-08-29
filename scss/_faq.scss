@@ -1,0 +1,133 @@
+// ========================================
+// FAQ
+// Responsive image + accordion layout
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+// Mobile/tablet: image stacks above the FAQ content. Desktop: a
+// two-column layout — image roughly 42% / content roughly 58%,
+// within the approved 40–45% / 55–60% split.
+.faq__layout {
+  display: grid;
+  gap: $space-9;
+  align-items: start;
+
+  @include respond(desktop) {
+    grid-template-columns: 5fr 7fr;
+    gap: $space-11;
+  }
+}
+
+
+// ========================================
+// SUPPORTING IMAGE
+// ========================================
+// A fixed aspect-ratio (rather than stretching to match the content
+// column) keeps the image visually stable while accordion answers
+// open/close and change the content column's height.
+
+.faq__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: $radius-md;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // Keeps her face in frame across the different crop ratios below.
+    object-position: center top;
+  }
+
+  @include respond(desktop) {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.faq__heading {
+  margin-bottom: $space-7;
+}
+
+
+// ========================================
+// ACCORDION ITEMS
+// ========================================
+// No expand/collapse indicator appears in the approved PDF (it's a
+// flat content mockup with every answer shown for reference), so the
+// plus/minus glyph here is a necessary interactive affordance rather
+// than an approved visual detail — see the build report.
+
+.faq__item {
+  border-bottom: $border-width $border-style $color-border;
+}
+
+.faq__question {
+  margin: 0;
+}
+
+.faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  width: 100%;
+  padding-block: $space-7;
+  background: none;
+  border: none;
+  font-family: $font-body;
+  font-size: $font-size-body-large;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  text-align: left;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    position: relative;
+    width: 1em;
+    height: 1em;
+  }
+
+  // Plus/minus drawn with pseudo-elements on the ::after box —
+  // avoids an icon library or downloaded asset.
+  &::after {
+    background:
+      linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+      linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+    color: $color-secondary;
+    transition: background-size $transition-fast;
+  }
+
+  // Collapses the vertical stroke's height to 0 so the plus becomes a
+  // minus — no rotation involved, avoiding a diagonal mid-transition
+  // artifact.
+  &[aria-expanded="true"]::after {
+    background-size: 100% 2px, 2px 0;
+  }
+}
+
+.faq__answer p {
+  padding-bottom: $space-7;
+  max-width: 38rem;
+}
+
+
+// ========================================
+// VIEW ALL FAQS
+// ========================================
+// Plain text link (no button box) matching the goal-cards' CTA
+// treatment, not the outlined-button style used elsewhere.
+
+.faq__cta {
+  display: inline-block;
+  margin-top: $space-7;
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-secondary;
+}
