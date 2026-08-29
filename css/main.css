@@ -1070,6 +1070,16 @@ a:hover {
   }
 }
 
+.page-hero__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8753E;
+  margin-bottom: 1rem;
+}
+
 .page-hero__heading {
   max-width: 22ch;
   margin-bottom: 1.5rem;
@@ -1108,6 +1118,10 @@ a:hover {
 
 .philosophy--body-contouring {
   background-image: url("../assets/images/body-contouring/background.png");
+}
+
+.philosophy--body-sculpting {
+  background-image: url("../assets/images/body-sculpting/background.png");
 }
 
 .philosophy__inner {

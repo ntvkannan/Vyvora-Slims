@@ -23,6 +23,19 @@
   }
 }
 
+// Optional — only Body Sculpting's hero shows a "Premium Services"
+// label above the heading; other pages' markup has no
+// .page-hero__eyebrow, so this never affects them.
+.page-hero__eyebrow {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+  margin-bottom: $space-4;
+}
+
 .page-hero__heading {
   max-width: 22ch;
   margin-bottom: $space-6;
