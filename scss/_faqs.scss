@@ -1,0 +1,82 @@
+// ========================================
+// FAQ Page
+// Centered intro, four labeled question
+// groups, and a compact address strip
+// ========================================
+// Reuses the Home page's .faq__item / .faq__trigger / .faq__answer
+// accordion structure and js/faq.js as-is (unmodified) — only the
+// group wrapper needs new rules, since this page shows each category
+// as a boxed panel rather than Home's flat bordered list.
+
+@use "variables" as *;
+@use "layout" as *;
+
+
+// ========================================
+// INTRO
+// ========================================
+
+.faqs-hero__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.faqs-hero__text {
+  margin-top: $space-6;
+}
+
+
+// ========================================
+// QUESTION GROUPS
+// ========================================
+
+.faq-group {
+  max-width: 44rem;
+  margin-inline: auto;
+
+  // Spacing between groups; the first group needs none above it.
+  & + & {
+    margin-top: $space-11;
+  }
+}
+
+.faq-group__label {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+  padding-bottom: $space-4;
+  border-bottom: $border-width $border-style $color-border;
+  margin: 0 0 $space-6;
+}
+
+// A single background fill behind the whole group reproduces the
+// approved design's flush, boxed item panels — .faq__item's existing
+// border-bottom (unchanged) still divides the questions within it.
+.faq-group__list {
+  background-color: $color-tertiary-light;
+
+  .faq__item {
+    padding-inline: $space-6;
+  }
+}
+
+
+// ========================================
+// ADDRESS STRIP
+// ========================================
+// A compact utility line between the Final CTA and the footer — not
+// a full .section, since the approved design shows generous but not
+// full section-scale padding here.
+
+.faqs-address {
+  padding-block: $space-9;
+  text-align: center;
+}
+
+.faqs-address__text {
+  margin: 0;
+}

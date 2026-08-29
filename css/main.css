@@ -1407,3 +1407,49 @@ a:hover {
   height: 100%;
   object-fit: cover;
 }
+
+.faqs-hero__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.faqs-hero__text {
+  margin-top: 1.5rem;
+}
+
+.faq-group {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.faq-group + .faq-group {
+  margin-top: 5rem;
+}
+
+.faq-group__label {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8753E;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #D9D5CE;
+  margin: 0 0 1.5rem;
+}
+
+.faq-group__list {
+  background-color: #FEFCF9;
+}
+.faq-group__list .faq__item {
+  padding-inline: 1.5rem;
+}
+
+.faqs-address {
+  padding-block: 3rem;
+  text-align: center;
+}
+
+.faqs-address__text {
+  margin: 0;
+}
