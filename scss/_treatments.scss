@@ -81,3 +81,23 @@
   font-size: $font-size-h4;
   margin-bottom: $space-3;
 }
+
+// ========================================
+// SINGLE-COLUMN VARIANT
+// ========================================
+// Some pages (Body Contouring's "Our Contouring Options") show a
+// shorter, curated list of names only — no descriptions — and stay
+// one column even at the tablet breakpoint where the default list
+// becomes two. Applied alongside .treatment-list, not instead of it.
+.treatment-list--single {
+  @include respond(tablet) {
+    grid-template-columns: 1fr;
+
+    // The base list zeroes this item's top padding because it's the
+    // top of the second column at this breakpoint — not applicable
+    // here, since this variant never becomes two columns.
+    .treatment-list__item:nth-child(2) {
+      padding-top: $space-7;
+    }
+  }
+}

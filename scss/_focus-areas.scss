@@ -1,0 +1,49 @@
+// ========================================
+// Areas of Focus
+// Centered heading + intro + wrapped tag list
+// ========================================
+// The tag list is a single flex-wrap row — "Other selected areas"
+// isn't a separate element, it's simply the list's final item, which
+// wraps onto its own centered line at narrower widths exactly as in
+// the approved design.
+
+@use "variables" as *;
+
+.focus-areas__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.focus-areas__heading {
+  margin-bottom: $space-6;
+}
+
+.focus-areas__text {
+  margin-bottom: $space-9;
+}
+
+.focus-areas__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: $space-4;
+}
+
+.focus-areas__item {
+  font-family: $font-display;
+  font-size: $font-size-h4;
+  color: $color-primary;
+
+  // Middle-dot separator between items; omitted after the last one.
+  &::after {
+    content: "\00B7";
+    display: inline-block;
+    color: $color-border;
+    margin-inline: $space-4;
+  }
+
+  &:last-child::after {
+    content: none;
+  }
+}

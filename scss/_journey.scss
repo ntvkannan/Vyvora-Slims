@@ -1,0 +1,102 @@
+// ========================================
+// How VYVORA Approaches Your Journey
+// Left heading + right vertical step timeline
+// ========================================
+// Distinct from the Home/Weight Loss/Inch Loss "Approach" component
+// (a compact 4-item icon grid) — the approved Body Contouring design
+// uses a more detailed, numbered step-by-step timeline instead, so
+// this is a new, page-appropriate component rather than a forced
+// reuse of the icon-grid pattern.
+
+@use "variables" as *;
+@use "layout" as *;
+
+// Sits on a slightly lighter surface with a hairline top border,
+// distinguishing it from the plain cream sections around it.
+.journey {
+  background-color: $color-tertiary-light;
+  border-top: $border-width $border-style $color-border;
+}
+
+.journey__grid {
+  display: grid;
+  gap: $space-9;
+
+  @include respond(desktop) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+  }
+}
+
+
+// ========================================
+// STEP LIST
+// ========================================
+// Each step is a two-column grid (marker/rail + content) so the
+// connecting line can be drawn per-step via a pseudo-element that
+// extends into the gap before the next step, rather than relying on
+// fragile cross-element positioning math for one continuous line.
+
+.journey__step {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  column-gap: $space-5;
+  padding-bottom: $space-9;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.journey__rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0.9em;
+    bottom: calc(-1 * #{$space-9});
+    width: $border-width;
+    background-color: $color-border;
+  }
+}
+
+// No line dangling below the final marker.
+.journey__step:last-child .journey__rail::after {
+  display: none;
+}
+
+.journey__marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $color-border;
+  margin-top: 0.4em;
+}
+
+// Only the first step is highlighted, matching the approved design's
+// "start here" emphasis on the timeline.
+.journey__step:first-child .journey__marker {
+  background-color: $color-secondary-dark;
+}
+
+.journey__eyebrow {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+  margin-bottom: $space-2;
+}
+
+.journey__step-title {
+  font-size: $font-size-h3;
+  margin-bottom: $space-3;
+}
+
+.journey__step-description {
+  max-width: 38rem;
+}
