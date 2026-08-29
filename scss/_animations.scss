@@ -1,0 +1,44 @@
+// ========================================
+// Scroll Reveal
+// Shared fade + lift entrance for major sections,
+// card grids and step lists
+// ========================================
+// Applied via [data-reveal] in the HTML. Elements are fully visible
+// by default in the markup — the hidden starting state below only
+// takes effect once js/reveal.js has confirmed JavaScript is running
+// AND the visitor hasn't requested reduced motion, at which point it
+// adds .js-reveal-enabled to <html>. This means content is never
+// hidden from a visitor without JS, a browser without
+// IntersectionObserver, or anyone with a reduced-motion preference —
+// see js/reveal.js for that check.
+//
+// Only opacity and transform are animated so nothing here can shift
+// layout or reflow surrounding content.
+
+@use "variables" as *;
+
+.js-reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity $transition-reveal, transform $transition-reveal;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Cascades the reveal delay across an element's direct [data-reveal]
+// children — wrap a card grid, step list, or grouped content block
+// in this class to get a staggered entrance instead of every child
+// fading in at the same instant. Covers up to 6 children, which is
+// more than any current group (largest is 4).
+.reveal-stagger {
+  > [data-reveal] {
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 100}ms;
+      }
+    }
+  }
+}

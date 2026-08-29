@@ -6,7 +6,13 @@
 @use "variables" as *;
 @use "layout" as *;
 
+// Sticky rather than position: fixed — stays in normal document flow
+// (so no compensating top padding is needed on the page content) but
+// pins to the viewport top once the page scrolls past it.
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
   background-color: $color-background;
   border-bottom: $border-width $border-style $color-border;
 }
@@ -38,28 +44,56 @@
 // ========================================
 // NAVIGATION
 // ========================================
+// Below desktop, .site-nav doubles as the mobile menu panel: hidden
+// by default, shown as a full-width dropdown under the sticky header
+// when js/navigation.js adds .is-open. At desktop it reverts to its
+// normal inline position in the header row, unaffected by that class.
 
 .site-nav {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: $space-2 $container-padding-mobile $space-5;
+  background-color: $color-background;
+  border-bottom: $border-width $border-style $color-border;
+
+  &.is-open {
+    display: block;
+  }
+
+  @include respond(tablet) {
+    padding-inline: $container-padding-tablet;
+  }
 
   @include respond(desktop) {
     display: block;
+    position: static;
+    padding: 0;
+    background-color: transparent;
+    border-bottom: none;
   }
 }
 
 .site-nav__list {
   display: flex;
-  align-items: center;
-  gap: $space-7;
+  flex-direction: column;
+
+  @include respond(desktop) {
+    flex-direction: row;
+    align-items: center;
+    gap: $space-7;
+  }
 }
 
 .site-nav__link {
-  display: inline-block;
+  display: block;
   font-family: $font-body;
   font-size: $font-size-body;
   font-weight: $font-weight-medium;
   color: $color-text-primary;
-  padding-block: $space-1;
+  padding-block: $space-3;
   border-bottom: $border-width $border-style transparent;
   transition: color $transition-fast, border-color $transition-fast;
 
@@ -70,6 +104,12 @@
   &.is-active {
     font-weight: $font-weight-semibold;
     border-bottom-color: $color-secondary;
+  }
+
+  // Desktop keeps the original compact inline treatment.
+  @include respond(desktop) {
+    display: inline-block;
+    padding-block: $space-1;
   }
 }
 
@@ -96,7 +136,10 @@
 // ========================================
 // MOBILE MENU TOGGLE
 // ========================================
-// Structure only — toggle behavior is implemented in a later JS step.
+// Open/closed behavior lives in js/navigation.js, which toggles
+// .is-open on .site-nav and the aria-expanded/aria-label attributes
+// here. The hamburger-to-close morph below reads that same
+// aria-expanded attribute directly, so it needs no JS of its own.
 
 .site-header__toggle {
   display: flex;
@@ -117,4 +160,33 @@
   width: 100%;
   height: 2px;
   background-color: $color-primary;
+  transition: transform $transition-base, opacity $transition-base;
+}
+
+// Bar height (2px) + gap ($space-1, 4px) = 6px center-to-center, so
+// translating the top/bottom bars by that amount brings them to the
+// middle bar's position before rotating into an X.
+.site-header__toggle[aria-expanded="true"] {
+  .site-header__toggle-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .site-header__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header__toggle-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+
+// ========================================
+// SCROLL LOCK
+// ========================================
+// Applied to <body> by js/navigation.js while the mobile menu is
+// open, so the page behind the dropdown can't be scrolled.
+
+.has-locked-scroll {
+  overflow: hidden;
 }
