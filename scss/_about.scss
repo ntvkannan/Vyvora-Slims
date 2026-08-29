@@ -1,0 +1,186 @@
+// ========================================
+// About Page
+// Page-specific sections: philosophy quote,
+// core-focus grid, and the "Visit Us" panel
+// ========================================
+// These three sections have no genuine match among the existing
+// reusable components (unlike "Our Approach" below, which reuses
+// .approach with a scoped override) — each is visually distinct
+// enough on the approved page to warrant its own rules here rather
+// than forcing a stretch-fit onto an existing pattern.
+
+@use "variables" as *;
+@use "layout" as *;
+
+
+// ========================================
+// PHILOSOPHY QUOTE
+// ========================================
+// Distinct from the treatment pages' .philosophy component: no
+// full-bleed background image, a muted (not gold) eyebrow, and an
+// italic pull-quote heading instead of a "What is X?" question.
+
+.about-quote__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-quote__eyebrow {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-bottom: $space-4;
+}
+
+.about-quote__heading {
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  margin-bottom: $space-4;
+}
+
+.about-quote__text {
+  margin-top: $space-8;
+}
+
+
+// ========================================
+// OUR APPROACH — scoped override
+// ========================================
+// Reuses .approach/.approach__step structurally (same four-step
+// icon grid), but the approved design shows this instance on the
+// page's plain cream background (not white), with a left-aligned
+// intro and bordered step cards rather than Home's plain centered
+// steps. Scoped to .approach--about so Home's approved section is
+// untouched.
+
+.approach--about {
+  background-color: transparent;
+
+  .approach__intro {
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .approach__step {
+    text-align: left;
+    padding: $space-6;
+    border: $border-width $border-style $color-border;
+  }
+}
+
+
+// ========================================
+// OUR CORE FOCUS
+// ========================================
+// Sits on the lighter tertiary-light band (matching the alternating
+// section rhythm used elsewhere, e.g. Body Contouring's Journey
+// section). Each item is an icon (from assets/icons/sprite.svg) above
+// a label.
+
+.core-focus {
+  background-color: $color-tertiary-light;
+}
+
+.core-focus__inner {
+  text-align: center;
+}
+
+.core-focus__heading {
+  margin-bottom: $space-4;
+}
+
+.core-focus__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-6;
+  margin-top: $space-9;
+
+  @include respond(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.core-focus__item {
+  padding: $space-7 $space-4;
+  background-color: $color-surface-muted;
+  border: $border-width $border-style $color-border;
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+}
+
+// Decorative only — the label text already conveys the category, so
+// the icon is aria-hidden in the HTML and needs no accessible name.
+.core-focus__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto $space-3;
+  color: $color-secondary-dark;
+}
+
+
+// ========================================
+// VISIT US PANEL
+// ========================================
+// A bordered card pairing address/CTA copy with a photo — image
+// flush to the card's edges, text given its own padding. Square
+// corners throughout, matching the site's established restrained
+// border treatment (no shadows, no rounding).
+
+.visit-panel {
+  display: grid;
+  border: $border-width $border-style $color-border;
+  background-color: $color-tertiary-light;
+
+  @include respond(desktop) {
+    grid-template-columns: 5fr 7fr;
+    align-items: stretch;
+  }
+}
+
+.visit-panel__content {
+  padding: $space-9 $space-7;
+
+  @include respond(desktop) {
+    padding: $space-11;
+  }
+}
+
+.visit-panel__eyebrow {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+  margin-bottom: $space-4;
+}
+
+.visit-panel__heading {
+  margin-bottom: $space-6;
+}
+
+.visit-panel__address {
+  font-style: normal;
+  margin-bottom: $space-8;
+
+  p {
+    margin: 0;
+  }
+}
+
+.visit-panel__media {
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

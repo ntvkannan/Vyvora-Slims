@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+
+  <!--
+    Icon sprite sheet — inline <symbol> definitions referenced via
+    <use href="assets/icons/sprite.svg#ICON-ID"> elsewhere in the
+    site. Icons are hand-derived from the Lucide icon set
+    (https://lucide.dev, ISC licensed) to match its simple,
+    thin-stroke style — no icon library or runtime dependency is
+    loaded; this file is the entire icon system. Each symbol keeps
+    Lucide's standard 24x24 viewBox and stroke conventions so new
+    icons can be added consistently later.
+  -->
+
+  <symbol id="icon-trending-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+    <polyline points="16 17 22 17 22 11"></polyline>
+  </symbol>
+
+  <symbol id="icon-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15.5 3.5 20.5 8.5 8.5 20.5 3.5 15.5Z"></path>
+    <path d="m7.5 11.5 2 2"></path>
+    <path d="m10.5 8.5 2 2"></path>
+    <path d="m13.5 5.5 2 2"></path>
+  </symbol>
+
+  <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <circle cx="12" cy="12" r="6"></circle>
+    <circle cx="12" cy="12" r="2"></circle>
+  </symbol>
+
+  <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+    <circle cx="12" cy="7" r="4"></circle>
+  </symbol>
+
+</svg>

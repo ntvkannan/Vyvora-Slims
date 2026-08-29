@@ -1275,3 +1275,135 @@ a:hover {
 .focus-areas__item:last-child::after {
   content: none;
 }
+
+.about-quote__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-quote__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #707070;
+  margin-bottom: 1rem;
+}
+
+.about-quote__heading {
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.about-quote__text {
+  margin-top: 2.5rem;
+}
+
+.approach--about {
+  background-color: transparent;
+}
+.approach--about .approach__intro {
+  max-width: none;
+  margin-inline: 0;
+  text-align: left;
+}
+.approach--about .approach__step {
+  text-align: left;
+  padding: 1.5rem;
+  border: 1px solid #D9D5CE;
+}
+
+.core-focus {
+  background-color: #FEFCF9;
+}
+
+.core-focus__inner {
+  text-align: center;
+}
+
+.core-focus__heading {
+  margin-bottom: 1rem;
+}
+
+.core-focus__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 1024px) {
+  .core-focus__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.core-focus__item {
+  padding: 2rem 1rem;
+  background-color: #F4F1EC;
+  border: 1px solid #D9D5CE;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0D332B;
+}
+
+.core-focus__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 0.75rem;
+  color: #A8753E;
+}
+
+.visit-panel {
+  display: grid;
+  border: 1px solid #D9D5CE;
+  background-color: #FEFCF9;
+}
+@media (min-width: 1024px) {
+  .visit-panel {
+    grid-template-columns: 5fr 7fr;
+    align-items: stretch;
+  }
+}
+
+.visit-panel__content {
+  padding: 3rem 2rem;
+}
+@media (min-width: 1024px) {
+  .visit-panel__content {
+    padding: 5rem;
+  }
+}
+
+.visit-panel__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8753E;
+  margin-bottom: 1rem;
+}
+
+.visit-panel__heading {
+  margin-bottom: 1.5rem;
+}
+
+.visit-panel__address {
+  font-style: normal;
+  margin-bottom: 2.5rem;
+}
+.visit-panel__address p {
+  margin: 0;
+}
+
+.visit-panel__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
