@@ -10,10 +10,21 @@
 
 @use "variables" as *;
 
+// Base rule intentionally has no background-image — each page
+// supplies its own via a modifier class below, since every page
+// keeps its own copy of background.png in its own asset folder
+// (see the Page-Specific Image Asset Convention in CLAUDE.md).
 .philosophy {
-  background-image: url("../assets/images/weight-loss/background.png");
   background-size: cover;
   background-position: center;
+}
+
+.philosophy--weight-loss {
+  background-image: url("../assets/images/weight-loss/background.png");
+}
+
+.philosophy--inch-loss {
+  background-image: url("../assets/images/inch-loss/background.png");
 }
 
 .philosophy__inner {
@@ -32,6 +43,22 @@
 
 .philosophy__heading {
   margin-bottom: $space-9;
+}
+
+// Some pages (Inch Loss) show a short gold rule under the heading;
+// Weight Loss's markup has no .philosophy__divider, so this rule and
+// the tightened heading spacing below only ever apply where it's
+// actually present — Weight Loss's spacing is untouched.
+.philosophy__heading:has(+ .philosophy__divider) {
+  margin-bottom: $space-4;
+}
+
+.philosophy__divider {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background-color: $color-secondary-dark;
+  margin: 0 auto $space-8;
 }
 
 .philosophy__text {

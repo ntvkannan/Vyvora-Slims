@@ -1077,20 +1077,23 @@ a:hover {
   gap: 1.25rem;
 }
 
-.page-hero__media {
-  aspect-ratio: 1/1;
-  overflow: hidden;
-}
 .page-hero__media img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .philosophy {
-  background-image: url("../assets/images/weight-loss/background.png");
   background-size: cover;
   background-position: center;
+}
+
+.philosophy--weight-loss {
+  background-image: url("../assets/images/weight-loss/background.png");
+}
+
+.philosophy--inch-loss {
+  background-image: url("../assets/images/inch-loss/background.png");
 }
 
 .philosophy__inner {
@@ -1109,6 +1112,18 @@ a:hover {
 
 .philosophy__heading {
   margin-bottom: 3rem;
+}
+
+.philosophy__heading:has(+ .philosophy__divider) {
+  margin-bottom: 1rem;
+}
+
+.philosophy__divider {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background-color: #A8753E;
+  margin: 0 auto 2.5rem;
 }
 
 .philosophy__text {

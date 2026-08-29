@@ -40,15 +40,15 @@
   gap: $space-5;
 }
 
-// Fixed aspect-ratio keeps the photo stable regardless of column
-// width; square crop matches the approved source image.
-.page-hero__media {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+// Natural proportions rather than a fixed aspect-ratio: each page's
+// hero photo is a slightly different shape (Weight Loss's is a
+// perfect square; Inch Loss's is very slightly wider), and the
+// approved PDF shows each at its own native ratio rather than a
+// cropped square. width:100%/height:auto renders any of them without
+// cropping, and produces the identical square result for Weight
+// Loss's own square source — no visual change there.
+.page-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
