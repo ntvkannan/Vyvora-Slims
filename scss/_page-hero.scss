@@ -1,0 +1,54 @@
+// ========================================
+// Page Hero
+// Reusable interior-page hero: heading + intro
+// copy + dual CTA beside a portrait photo
+// ========================================
+// Distinct from the Home hero (_hero.scss), which is a full-bleed
+// photo with overlaid text. Interior pages instead show a plain
+// background with the copy and a framed image side by side, per the
+// approved PDF. Built generically (not "weight-loss-hero") since the
+// same composition is expected to recur on the other treatment pages.
+
+@use "variables" as *;
+@use "layout" as *;
+
+.page-hero__inner {
+  display: grid;
+  gap: $space-9;
+  align-items: center;
+
+  @include respond(desktop) {
+    grid-template-columns: 5fr 7fr;
+    gap: $space-11;
+  }
+}
+
+.page-hero__heading {
+  max-width: 22ch;
+  margin-bottom: $space-6;
+}
+
+.page-hero__text {
+  max-width: 34rem;
+  font-size: $font-size-body-large;
+  margin-bottom: $space-9;
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-5;
+}
+
+// Fixed aspect-ratio keeps the photo stable regardless of column
+// width; square crop matches the approved source image.
+.page-hero__media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

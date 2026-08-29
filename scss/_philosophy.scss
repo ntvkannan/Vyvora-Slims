@@ -1,0 +1,50 @@
+// ========================================
+// Philosophy
+// Centered intro copy on a full-bleed
+// marble-texture background image
+// ========================================
+// The background is a purely decorative CSS background-image (not an
+// <img>), so it needs no alt text and can't cause layout-affecting
+// clipping — background-size: cover fills whatever height the
+// section's own content/padding produces.
+
+@use "variables" as *;
+
+.philosophy {
+  background-image: url("../assets/images/weight-loss/background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.philosophy__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.philosophy__eyebrow {
+  font-family: $font-label;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-semibold;
+  color: $color-secondary-dark;
+  margin-bottom: $space-4;
+}
+
+.philosophy__heading {
+  margin-bottom: $space-9;
+}
+
+.philosophy__text {
+  margin-bottom: $space-6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// The approved design sets the second paragraph in a lighter, more
+// muted tone than the standard body copy — a secondary/supporting
+// line rather than a repeat of the primary description.
+.philosophy__text--muted {
+  color: $color-text-muted;
+}

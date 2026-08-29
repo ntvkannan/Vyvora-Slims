@@ -1047,3 +1047,77 @@ a:hover {
 .reveal-stagger > [data-reveal]:nth-child(6) {
   transition-delay: 500ms;
 }
+
+.page-hero__inner {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .page-hero__inner {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+  }
+}
+
+.page-hero__heading {
+  max-width: 22ch;
+  margin-bottom: 1.5rem;
+}
+
+.page-hero__text {
+  max-width: 34rem;
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.page-hero__media {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+.page-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.philosophy {
+  background-image: url("../assets/images/weight-loss/background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.philosophy__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.philosophy__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #A8753E;
+  margin-bottom: 1rem;
+}
+
+.philosophy__heading {
+  margin-bottom: 3rem;
+}
+
+.philosophy__text {
+  margin-bottom: 1.5rem;
+}
+.philosophy__text:last-child {
+  margin-bottom: 0;
+}
+
+.philosophy__text--muted {
+  color: #707070;
+}
