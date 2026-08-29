@@ -1,0 +1,114 @@
+// ========================================
+// Contact Page
+// Intro + banner photo, three contact-method
+// cards, and a compact address strip
+// ========================================
+// Page-specific layout only — the Final CTA, header and footer are
+// the existing shared components used unmodified elsewhere on the
+// site (see contact.html).
+
+@use "variables" as *;
+@use "layout" as *;
+
+
+// ========================================
+// INTRO
+// ========================================
+// Centered heading + intro copy, matching the simple text-only hero
+// pattern already established for FAQs — kept as its own rule here
+// (rather than reused cross-page) since .faqs-hero is a FAQ-specific
+// class name.
+
+.contact-hero__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.contact-hero__text {
+  margin-top: $space-6;
+}
+
+// Wide banner photo directly below the intro copy, at its approved
+// aspect ratio (no cropping) so the room reads clearly at any width.
+.contact-hero__media {
+  margin-top: $space-11;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+// ========================================
+// CONTACT CARDS
+// ========================================
+// Three equal columns at desktop, stacking on mobile/tablet. Each
+// card is icon + heading + detail copy + action button, bordered to
+// match the site's established flat panel treatment (no shadows).
+
+.contact-cards {
+  display: grid;
+  gap: $space-6;
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: $space-8 $space-6;
+  background-color: $color-tertiary-light;
+  border: $border-width $border-style $color-border;
+}
+
+// Decorative only — each card's heading already names the contact
+// method, so the icon is aria-hidden and needs no accessible name.
+.contact-card__icon {
+  width: 36px;
+  height: 36px;
+  color: $color-primary;
+  margin-bottom: $space-5;
+}
+
+.contact-card__heading {
+  font-size: $font-size-h3;
+  margin-bottom: $space-3;
+}
+
+// font-style: normal overrides the browser default for <address>,
+// used here for the Visit Us card's street address.
+.contact-card__detail {
+  font-style: normal;
+  margin-bottom: $space-7;
+}
+
+// Disabled "Get Directions" reads clearly as inactive rather than a
+// broken link — see the build report for why it has no href yet.
+.contact-card .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+// ========================================
+// ADDRESS STRIP
+// ========================================
+// Compact utility line between the Final CTA and the footer — the
+// same simple treatment used on the FAQ page, restated here as its
+// own rule to keep this partial self-contained.
+
+.contact-address {
+  padding-block: $space-9;
+  text-align: center;
+}
+
+.contact-address__text {
+  margin: 0;
+}

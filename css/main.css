@@ -1453,3 +1453,73 @@ a:hover {
 .faqs-address__text {
   margin: 0;
 }
+
+.contact-hero__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.contact-hero__text {
+  margin-top: 1.5rem;
+}
+
+.contact-hero__media {
+  margin-top: 5rem;
+}
+.contact-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-cards {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .contact-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background-color: #FEFCF9;
+  border: 1px solid #D9D5CE;
+}
+
+.contact-card__icon {
+  width: 36px;
+  height: 36px;
+  color: #0D332B;
+  margin-bottom: 1.25rem;
+}
+
+.contact-card__heading {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: 0.75rem;
+}
+
+.contact-card__detail {
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.contact-card .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-address {
+  padding-block: 3rem;
+  text-align: center;
+}
+
+.contact-address__text {
+  margin: 0;
+}
