@@ -651,3 +651,56 @@ Do not add a WhatsApp CTA to a section simply because WhatsApp exists elsewhere 
 Do not add additional CTAs that are not present in the approved design.
 
 The approved PDF is the visual source of truth for CTA presence and placement.
+
+Update CLAUDE.md with the following project rule.
+
+## Page-Specific Image Asset Convention
+
+All page-specific images must be stored inside that page's dedicated
+folder:
+
+assets/images/<page-name>/
+
+Use role-based, reusable filenames rather than filenames describing
+the person, object, or visual content.
+
+Standard filenames may include:
+
+- background.png — background/decorative image
+- hero.png — primary page hero image
+- treatment.png — treatment/service image
+- consultation.png — consultation-related image
+- journey.png — process/journey image
+- results.png — results/outcome image
+- banner.png — wide banner image
+- thumbnail.png — preview/card image
+
+Only create/use filenames that are actually required by the approved
+PDF/design. Do not create unnecessary placeholder images.
+
+The same filename convention must be used across equivalent pages.
+For example:
+
+assets/images/weight-loss/hero.png
+assets/images/inch-loss/hero.png
+assets/images/body-contouring/hero.png
+assets/images/body-sculpting/hero.png
+
+Page code should reference the image according to its role and page
+folder, so replacing the actual image file does not require changing
+the HTML/SCSS structure.
+
+Do not rename images based on their visual subject, such as:
+woman.png, doctor.png, machine.png, image1.png, photo-final.png, etc.
+
+The approved PDF remains the visual source of truth. Never invent,
+download, or add an image when the design does not require one.
+
+When an image is missing, stop and report the required asset and its
+expected role/filename before continuing.
+
+Preserve meaningful alt text for content images and use empty alt
+text for genuinely decorative images.
+
+Add this rule without changing any existing design tokens,
+architecture, or other project instructions.
