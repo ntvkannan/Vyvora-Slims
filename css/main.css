@@ -1615,13 +1615,26 @@ a:hover {
   padding: 2.5rem 1.5rem;
   background-color: #FEFCF9;
   border: 1px solid #D9D5CE;
+  transition: border-color 250ms ease;
+}
+.contact-card:hover {
+  border-color: #A8753E;
+}
+
+.contact-card__icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #DCE8E4;
+  margin-bottom: 1.25rem;
 }
 
 .contact-card__icon {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   color: #0D332B;
-  margin-bottom: 1.25rem;
 }
 
 .contact-card__heading {
@@ -1634,9 +1647,8 @@ a:hover {
   margin-bottom: 2rem;
 }
 
-.contact-card .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.contact-card .btn {
+  margin-top: auto;
 }
 
 .contact-address {

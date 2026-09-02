@@ -66,15 +66,36 @@
   padding: $space-8 $space-6;
   background-color: $color-tertiary-light;
   border: $border-width $border-style $color-border;
+  transition: border-color $transition-base;
+
+  // Cards are actionable (each links out via its CTA), so a gentle
+  // border tint on hover confirms that without resorting to the
+  // shadows/rounding the design system avoids elsewhere.
+  &:hover {
+    border-color: $color-secondary-dark;
+  }
+}
+
+// Square, not circular — matches the site's "no rounding" panel/button
+// treatment (see .btn, .visit-panel) rather than introducing a new
+// rounded shape. Gives the icon more visual weight than a bare glyph.
+.contact-card__icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: $color-primary-light;
+  margin-bottom: $space-5;
 }
 
 // Decorative only — each card's heading already names the contact
-// method, so the icon is aria-hidden and needs no accessible name.
+// method, so the badge wrapping it is aria-hidden and the icon needs
+// no accessible name.
 .contact-card__icon {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   color: $color-primary;
-  margin-bottom: $space-5;
 }
 
 .contact-card__heading {
@@ -89,11 +110,12 @@
   margin-bottom: $space-7;
 }
 
-// Disabled "Get Directions" reads clearly as inactive rather than a
-// broken link — see the build report for why it has no href yet.
-.contact-card .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+// Pins every card's CTA to the same baseline regardless of how many
+// lines the heading/detail above it wraps to (the address card runs
+// three lines; Call and WhatsApp run one or two) — without this the
+// three buttons sit at different heights across the row.
+.contact-card .btn {
+  margin-top: auto;
 }
 
 
