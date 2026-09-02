@@ -1,0 +1,62 @@
+// ========================================
+// Scroll to Top
+// Fixed bottom-right button, shown once the
+// page has scrolled past a threshold
+// ========================================
+// Hidden by default via opacity/visibility (not display: none, so the
+// transition below can animate it in) rather than shown-by-default
+// like [data-reveal] content — unlike revealed content, this button
+// does nothing without JavaScript (js/scroll-top.js both toggles its
+// visibility and handles the click), so there is no meaningful no-JS
+// state worth preserving as visible. Square corners and flat color,
+// matching the site's established border-radius: none / no-shadow
+// button treatment rather than the rounded "FAB" style common
+// elsewhere on the web.
+
+@use "variables" as *;
+@use "layout" as *;
+
+.scroll-top {
+  position: fixed;
+  right: $space-6;
+  bottom: $space-6;
+  z-index: $z-header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: $color-primary;
+  border: $border-width $border-style $color-primary;
+  border-radius: $radius-none;
+  color: $color-text-inverted;
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity $transition-base, transform $transition-base,
+    visibility $transition-base, background-color $transition-base,
+    border-color $transition-base;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+  }
+
+  @include respond(desktop) {
+    right: $space-9;
+    bottom: $space-9;
+  }
+}
+
+.scroll-top__icon {
+  width: 20px;
+  height: 20px;
+}

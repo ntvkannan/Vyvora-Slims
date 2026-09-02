@@ -1664,3 +1664,44 @@ a:hover {
 .contact-address__text {
   margin: 0;
 }
+
+.scroll-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #0D332B;
+  border: 1px solid #0D332B;
+  border-radius: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 250ms ease, transform 250ms ease, visibility 250ms ease, background-color 250ms ease, border-color 250ms ease;
+}
+.scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  background-color: #08251F;
+  border-color: #08251F;
+}
+@media (min-width: 1024px) {
+  .scroll-top {
+    right: 3rem;
+    bottom: 3rem;
+  }
+}
+
+.scroll-top__icon {
+  width: 20px;
+  height: 20px;
+}
