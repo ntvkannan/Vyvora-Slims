@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Treatments | VYVORA SLIMS</title>
-  <meta name="description" content="An overview of VYVORA SLIMS treatment options. Complete treatment information will be available on this page soon.">
+  <meta name="description" content="VYVORA SLIMS offers a range of slimming and body-contouring treatment options. Treatment suitability is always discussed during consultation.">
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -41,17 +41,100 @@
   <main>
 
     <!-- ========================================
-         Treatments — Placeholder
-         Temporary page until an approved Treatments page
-         design/content is available. Built entirely from existing
-         global styles (.section, .container, default heading/body
-         typography) — no page-specific SCSS required.
+         Treatments Hero
+         Reuses .page-hero, the same component every other interior
+         page uses (About, Contact, Weight Loss, etc. — see
+         scss/_page-hero.scss). Heading and intro copy are reused
+         verbatim from the Home page's "Treatments Designed Around
+         Your Goals" section (index.html, #treatments) rather than
+         repeating the "Explore Our Treatments" wording used by the
+         list section below.
          ======================================== -->
-    <section class="section">
-      <div class="container">
-        <h1>Treatments</h1>
-        <p>Complete treatment information will be available on this page soon.</p>
-        <a href="index.html" class="btn btn--outline">Back to Home</a>
+    <section class="page-hero section">
+      <div class="page-hero__inner container reveal-stagger">
+        <div class="page-hero__content">
+          <h1 class="page-hero__heading" data-reveal>Treatments Designed Around Your Goals</h1>
+          <p class="page-hero__text" data-reveal>Whether your goal is weight management, inch loss, body contouring or body sculpting, explore our range of treatment options and discover where your journey can begin.</p>
+          <div class="page-hero__actions" data-reveal>
+            <a href="contact.html" class="btn btn--primary">Book a Consultation</a>
+          </div>
+        </div>
+
+        <figure class="page-hero__media" data-reveal>
+          <img src="assets/images/treatments/hero.png" alt="A VYVORA SLIMS treatment room, showing the range of technology used across its slimming and body-contouring treatments">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========================================
+         Explore Our Treatments
+         Reuses the Home page's "Explore Our Treatments" section
+         content and markup verbatim (see index.html) — the heading,
+         intro copy and treatment list were built with this reuse in
+         mind (see scss/_treatments.scss). Two differences from the
+         Home instance: the heading is an h2 here (the hero above
+         carries the page's h1); and Home's "View All Treatments" CTA
+         is omitted, since it would link to this same page.
+         ======================================== -->
+    <section class="treatments section">
+      <div class="treatments__grid container">
+        <div class="treatments__intro" data-reveal>
+          <h2 class="treatments__heading">Explore Our Treatments</h2>
+          <p class="treatments__text">VYVORA SLIMS offers a range of slimming and body-contouring treatment options. Treatment suitability is always discussed during consultation.</p>
+        </div>
+
+        <ul class="treatment-list" data-reveal>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">Lipolaser / Ultrasound</h3>
+            <p class="treatment-list__description">Laser and ultrasound-based treatment options, offered as part of a personalized slimming and body-contouring approach.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">Cryolipolysis</h3>
+            <p class="treatment-list__description">Cooling-based body-contouring treatment options for selected areas.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">Advanced Cool Sculpting</h3>
+            <p class="treatment-list__description">Targeted body-contouring options designed around specific areas of concern.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">M-Sculpt</h3>
+            <p class="treatment-list__description">A body-shaping option explored as part of a personalized approach.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">Tripolar RF</h3>
+            <p class="treatment-list__description">RF-based treatment options for selected body-contouring and appearance goals.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">HIFU / MMFU / RF</h3>
+            <p class="treatment-list__description">Technology-led treatment options available at VYVORA SLIMS.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">Tummy Thread</h3>
+            <p class="treatment-list__description">A tummy-focused treatment option, explored as part of a personalized plan.</p>
+          </li>
+          <li class="treatment-list__item">
+            <h3 class="treatment-list__name">EMS</h3>
+            <p class="treatment-list__description">EMS-based body-sculpting treatment option.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================
+         Final Consultation CTA
+         Identical content/structure to the Home page section (and
+         Weight Loss, Inch Loss, Body Contouring, Body Sculpting).
+         ======================================== -->
+    <section class="final-cta section">
+      <div class="final-cta__inner container reveal-stagger">
+        <h2 class="final-cta__heading" data-reveal>Ready to Start Your Journey?</h2>
+
+        <p class="final-cta__text" data-reveal>Connect with our team to schedule your private consultation and discover the right path for your body.</p>
+
+        <div class="final-cta__actions" data-reveal>
+          <a href="contact.html" class="btn btn--primary">Book a Consultation</a>
+          <a href="https://wa.me/918095077756" class="btn btn--outline">WhatsApp Us</a>
+        </div>
       </div>
     </section>
 
