@@ -1302,6 +1302,122 @@ a:hover {
   margin-top: 2.5rem;
 }
 
+.founder__inner {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .founder__inner {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: start;
+  }
+}
+
+.founder__media {
+  max-width: 22rem;
+  margin-inline: auto;
+  border: 1px solid #D9D5CE;
+}
+@media (min-width: 1024px) {
+  .founder__media {
+    margin-inline: 0;
+  }
+}
+.founder__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.founder__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8753E;
+  margin-bottom: 1rem;
+}
+
+.founder__name {
+  margin-bottom: 0.5rem;
+}
+
+.founder__role {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #707070;
+  margin-bottom: 2rem;
+}
+
+.founder__narrative p + p {
+  margin-top: 1.25rem;
+}
+
+.mission-vision {
+  background-color: #FEFCF9;
+}
+
+.mission-vision__intro {
+  margin-bottom: 3rem;
+}
+
+.mission-vision__eyebrow {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8753E;
+}
+
+.mission-vision__row {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.mission-vision__row + .mission-vision__row {
+  margin-top: 5rem;
+}
+@media (min-width: 1024px) {
+  .mission-vision__row + .mission-vision__row {
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .mission-vision__row {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mission-vision__row--reverse {
+    grid-template-columns: 7fr 5fr;
+  }
+  .mission-vision__row--reverse .mission-vision__content {
+    order: 1;
+  }
+  .mission-vision__row--reverse .mission-vision__media {
+    order: 0;
+  }
+}
+
+.mission-vision__heading {
+  margin-bottom: 1.5rem;
+}
+
+.mission-vision__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .approach--about {
   background-color: transparent;
 }
@@ -1401,11 +1517,19 @@ a:hover {
   margin: 0;
 }
 
-.visit-panel__media img {
+.visit-panel__media {
+  aspect-ratio: 4/3;
+}
+@media (min-width: 1024px) {
+  .visit-panel__media {
+    aspect-ratio: auto;
+  }
+}
+.visit-panel__media iframe {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  border: 0;
 }
 
 .faqs-hero__inner {

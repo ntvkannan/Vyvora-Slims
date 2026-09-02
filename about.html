@@ -79,6 +79,70 @@
     </section>
 
     <!-- ========================================
+         Founder Story
+         Editorial profile pairing the founder's portrait with his own
+         account of starting and growing the centre. Content is
+         preserved in full per the project owner's brief — only minor
+         grammar/punctuation was corrected, meaning unchanged. See
+         scss/_about.scss.
+         ======================================== -->
+    <section class="founder section">
+      <div class="founder__inner container" data-reveal>
+        <figure class="founder__media">
+          <img src="assets/images/about/founder.png" alt="Portrait of Mr. Ilayaraj, Founder of VYVORA SLIMS">
+        </figure>
+
+        <div class="founder__content">
+          <p class="founder__eyebrow">Founder Story</p>
+          <h2 class="founder__name">Mr. Ilayaraj</h2>
+          <p class="founder__role">Founder</p>
+
+          <div class="founder__narrative">
+            <p>I started my career in 2000 at VLCC as a part-time job for two years. I learned what slimming is and the details of weight loss therapy. Then I started my full-time service in a start-up company. I got lots of exposure and gained knowledge in Ayurvedic treatment, slimming treatment, marketing, counselling, and sales.</p>
+            <p>Later, I received an opportunity from another start-up company as Manager and had access to the centre, and also gave service to the clients.</p>
+            <p>Looking at my service, one of the clients, Mr. Selvaraj, sponsored me for the G5 machine. He motivated me to do home service, freelancing, etc.</p>
+            <p>Then I opened the centre named Trimme in HSR Layout as a working partner.</p>
+            <p>I have now received an opportunity from the Chairman of The Best Club, Dr. R. Arunachalam, to open the slimming centre in Rajarajeshwari Nagar attached to the Club.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         Mission & Vision
+         Two editorial photo/copy rows, alternating sides for visual
+         rhythm — proportions mirror .page-hero's copy/photo split.
+         Wording is reproduced as supplied in the brief, with only
+         obvious punctuation fixes (meaning unchanged). See
+         scss/_about.scss.
+         ======================================== -->
+    <section class="mission-vision section">
+      <div class="mission-vision__intro container" data-reveal>
+        <p class="mission-vision__eyebrow">Mission &amp; Vision</p>
+      </div>
+
+      <div class="mission-vision__row container" data-reveal>
+        <div class="mission-vision__content">
+          <h2 class="mission-vision__heading">Mission</h2>
+          <p class="mission-vision__text">Weight-loss is a mental thing. Mission Slim Possible is our tool to getting diet revenge in ten weeks. Did you ever wonder why slim people are not on a diet? It&rsquo;s because diets don&rsquo;t work. It&rsquo;s time you discover how slim people think, act and eat. Slim is possible for you without dieting! We will help you set realistic attainable Daily or Weekly, step by step action plans that empower and motivate you towards your weight loss target. Help you manage your weight by focusing on what you &ldquo;can do&rdquo; not on what you &ldquo;can&rsquo;t&rdquo; do. Give you that extra push, focus and reassurance that you can do what you set out to do. We Provide you with usable guidance.</p>
+        </div>
+        <figure class="mission-vision__media">
+          <img src="assets/images/about/mission.png" alt="A glowing green and white leaf motif rising from still water beside smooth stones">
+        </figure>
+      </div>
+
+      <div class="mission-vision__row mission-vision__row--reverse container" data-reveal>
+        <div class="mission-vision__content">
+          <h2 class="mission-vision__heading">Vision</h2>
+          <p class="mission-vision__text">To be synonymous with mental well-being, and all members of the community, regardless of age, gender, can turn to our health care centre for counselling support when facing life&rsquo;s challenges and transitions or are seeking personal health development.</p>
+        </div>
+        <figure class="mission-vision__media">
+          <img src="assets/images/about/vision.png" alt="A woman seated on a mountaintop at sunrise with arms raised, looking out over the clouds">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========================================
          Our Approach
          Reuses the Home page's .approach four-step component, scoped
          with .approach--about for this page's plain-background,
@@ -150,8 +214,10 @@
 
     <!-- ========================================
          Visit Us / Our Centre
-         Bordered panel pairing address + CTA with a photo. Unique to
-         this page — see scss/_about.scss.
+         Bordered panel pairing address + CTA with a live map of the
+         centre. Unique to this page — see scss/_about.scss. The map
+         query uses the address above (no separate Place ID has been
+         supplied), matching the "Get Directions" link on contact.html.
          ======================================== -->
     <section class="section">
       <div class="container" data-reveal>
@@ -166,9 +232,9 @@
             </address>
             <a href="contact.html" class="btn btn--primary">Contact Us</a>
           </div>
-          <figure class="visit-panel__media">
-            <img src="assets/images/about/visit.png" alt="A stone and leaf resting in a ceramic bowl on a linen-draped table, beside a sunlit window">
-          </figure>
+          <div class="visit-panel__media">
+            <iframe src="https://www.google.com/maps?q=33%2F4%2C+Meanee+Avenue%2C+Near+Ulsoor+Lake%2C+Bangalore+560042&output=embed" title="Map showing the VYVORA SLIMS centre location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
     </section>
