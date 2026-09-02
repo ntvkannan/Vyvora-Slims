@@ -112,6 +112,17 @@
   p + p {
     margin-top: $space-5;
   }
+
+  // The final paragraph shifts from the founder's personal account to
+  // VYVORA SLIMS today — a hairline rule (matching the site's existing
+  // divider treatment, e.g. .treatment-list__item) plus extra spacing
+  // sets it apart as the present-day continuation, without changing
+  // its typography or breaking it out of the narrative.
+  p:last-child {
+    margin-top: $space-7;
+    padding-top: $space-5;
+    border-top: $border-width $border-style $color-border;
+  }
 }
 
 

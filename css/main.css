@@ -1358,6 +1358,11 @@ a:hover {
 .founder__narrative p + p {
   margin-top: 1.25rem;
 }
+.founder__narrative p:last-child {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #D9D5CE;
+}
 
 .mission-vision {
   background-color: #FEFCF9;
