@@ -1,0 +1,59 @@
+// ========================================
+// VYVORA SLIMS
+// Legal Pages (Privacy Policy, Terms of Service)
+// ========================================
+
+@use "variables" as *;
+@use "layout" as *;
+
+.legal-hero {
+  text-align: center;
+}
+
+.legal-hero__inner {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legal-hero__inner h1 {
+  margin-bottom: $space-4;
+}
+
+.legal-hero__text {
+  font-size: $font-size-body;
+  line-height: 1.6;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.legal-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.legal-cta__panel {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: $space-11;
+  background-color: $color-background-light;
+  border: $border-width $border-style $color-border;
+
+  @include respond(mobile) {
+    padding: $space-8;
+  }
+}
+
+.legal-cta__text {
+  font-size: $font-size-body;
+  line-height: 1.6;
+  color: $color-text-primary;
+  margin: 0 0 $space-6 0;
+}
+
+.legal-cta__panel .btn {
+  display: inline-block;
+}
